@@ -27,8 +27,8 @@ app.use(express.json());
 app.use("/api/auth", AuthRoutes);
 app.use("/api/user", UserRoutes);
 app.use("/api/transaction", TransactionRoutes);
-app.use("/api/category", CategoryRoutes);
-app.use("/api/budget", BudgetRoutes);
+app.use("/api/categories", CategoryRoutes);
+app.use("/api/budgets", BudgetRoutes);
 
 // Connection
 const PORT = process.env.PORT || 5000;

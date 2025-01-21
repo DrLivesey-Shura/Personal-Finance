@@ -36,8 +36,23 @@ const createBudget = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
+// delete budget
+const deleteBudget = async (req, res) => {
+  try {
+    let budget = await Budget.findById(req.params.id);
+    if (!budget) {
+      return res.status(404).json({ message: "Budget not found" });
+    }
+    await Budget.findByIdAndDelete(req.params.id);
+    res.json({ message: "Budget deleted" });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+};
 
 module.exports = {
   getBudgets,
   createBudget,
+  deleteBudget,
 };

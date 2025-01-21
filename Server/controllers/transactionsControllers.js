@@ -51,7 +51,7 @@ exports.deleteTransaction = async (req, res) => {
     if (!transaction) {
       return res.status(404).json({ message: "Transaction not found" });
     }
-    await Transactions.findByIdAndDelete(req.params.id);
+    await Transaction.findByIdAndDelete(req.params.id);
     res.json({ message: "Transaction deleted" });
   } catch (err) {
     console.error(err.message);
