@@ -87,10 +87,11 @@ export default function FinanceManagement() {
     <div className="container mx-auto p-4 space-y-6">
       <div className="flex justify-between items-center">
         <Button onClick={() => router.push("/dashboard")}>
-          <ArrowLeft className="ml-2 h-4 w-4" />
+          <ArrowLeft className="h-4 w-4" />
           Home
         </Button>
         <h1 className="text-2xl font-bold">Dashboard</h1>
+        <h1 className="text-2xl mr-4 font-bold"></h1>
       </div>
       <QuickActions onAction={(type) => setActiveDialog(type)} />
 
@@ -117,13 +118,13 @@ export default function FinanceManagement() {
         categories={categories}
         onDelete={handleDelete.transaction}
       />
-      <CategoryList categories={categories} onDelete={handleDelete.category} />
       <BudgetList
         budgets={budgets}
         categories={categories}
         transactions={transactions}
         onDelete={handleDelete.budget}
       />
+      <CategoryList categories={categories} onDelete={handleDelete.category} />
     </div>
   );
 }
